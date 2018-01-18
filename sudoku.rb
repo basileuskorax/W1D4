@@ -1,6 +1,8 @@
 require_relative "board"
+require 'byebug'
 
 class SudokuGame
+  # debugger
   def self.from_file(filename)
     board = Board.from_file(filename)
     self.new(board)
@@ -54,12 +56,14 @@ class SudokuGame
   end
 
   def run
+    # debugger
     play_turn until solved?
     board.render
     puts "Congratulations, you win!"
   end
 
   def solved?
+    # debugger
     board.solved?
   end
 
@@ -78,5 +82,6 @@ class SudokuGame
   attr_reader :board
 end
 
-
+# debugger
 game = SudokuGame.from_file("puzzles/sudoku1.txt")
+game.run
